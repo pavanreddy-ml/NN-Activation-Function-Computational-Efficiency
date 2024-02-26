@@ -8,8 +8,9 @@ REPO_DIR="NN-Activation-Function-Computational-Efficiency/Sample_Capstone/code/"
 git clone $REPO_URL
 
 # Install Python and pip
+export DEBIAN_FRONTEND=noninteractive
 sudo apt-get update
-sudo apt-get install -yq python3 python3-pip
+sudo apt-get install -yq python3 python3-pip -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold"
 
 pip3 install numpy
 pip3 install pandas
