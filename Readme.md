@@ -6,6 +6,10 @@ chmod +x run.sh
 ./run.sh
 ```
 
-To run on colab, 
+To run on colab. run the following in a cell
+```bash
+!git clone "https://github.com/pavanreddy-ml/NN-Activation-Function-Computational-Efficiency.git)https://github.com/pavanreddy-ml/NN-Activation-Function-Computational-Efficiency.git"
+!python3 /content/NN-Activation-Function-Computational-Efficiency/Sample_Capstone/code/main.py
+```
 
 
