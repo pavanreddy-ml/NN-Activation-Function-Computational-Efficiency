@@ -20,8 +20,8 @@ import pstats
 
 results_df = load_file(NEW_RESULTS_FILE)
 
-datasets = ["mnist_digits", "cifar10", "california", "diabetes", "breast_cancer", "iris", "digits", "wine"]
-activations = ["tanh"]
+datasets = ["synthetic", "mnist_digits", "cifar10", "california", "diabetes", "breast_cancer", "iris", "digits", "wine"]
+activations = ["sigmoid", "tanh"]
 
 for act in activations:
   for dset in datasets:
