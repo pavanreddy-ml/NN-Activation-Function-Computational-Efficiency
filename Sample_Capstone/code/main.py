@@ -6,9 +6,9 @@ os.environ['NUMEXPR_NUM_THREADS'] = NUM_THREADS
 os.environ['OMP_NUM_THREADS'] = NUM_THREADS
 os.environ['VECLIB_MAXIMUM_THREADS'] = NUM_THREADS
 
-import psutil
-p = psutil.Process(os.getpid())
-p.cpu_affinity([0])
+# import psutil
+# p = psutil.Process(os.getpid())
+# p.cpu_affinity([0])
 
 
 import cProfile
@@ -29,10 +29,14 @@ parser = argparse.ArgumentParser(description='Process input arguments')
 
 parser.add_argument('--datasets', type=str, choices=default_datasets, help='Dataset to use', required=False)
 parser.add_argument('--activations', type=str, choices=default_activations, help='Activation function to use', required=False)
-parser.add_argument('--batch_size', type=int, help='Batch size for training', required=False)
+parser.add_argument('--batch_size', type=int, help='Batch size for training', required=False, default=BATCH_SIZE)
 
 # Parse the arguments
 args = parser.parse_args()
+
+dataset = args.datasets
+activations = args.activations
+BATCH_SIZE = args.batch_size
 
 for act in activations:
   for dset in datasets:
