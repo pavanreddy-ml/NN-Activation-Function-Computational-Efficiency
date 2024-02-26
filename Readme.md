@@ -4,7 +4,8 @@ To run on AWS ubuntu instance. Download the run.sh, activate and run it
 wget https://github.com/pavanreddy-ml/NN-Activation-Function-Computational-Efficiency/raw/main/run.sh
 chmod +x run.sh
 ./run.sh
-```bash
-exit
+```
+
+To run on colab, 
 
 
