@@ -20,8 +20,19 @@ import pstats
 
 results_df = load_file(NEW_RESULTS_FILE)
 
+
+"__name__" == __main__
 datasets = ["synthetic", "mnist_digits", "cifar10", "california", "diabetes", "breast_cancer", "iris", "digits", "wine"]
 activations = ["sigmoid", "tanh"]
+
+parser = argparse.ArgumentParser(description='Process input arguments')
+
+parser.add_argument('--datasets', type=str, choices=default_datasets, help='Dataset to use', required=False)
+parser.add_argument('--activations', type=str, choices=default_activations, help='Activation function to use', required=False)
+parser.add_argument('--batch_size', type=int, help='Batch size for training', required=False)
+
+# Parse the arguments
+args = parser.parse_args()
 
 for act in activations:
   for dset in datasets:
