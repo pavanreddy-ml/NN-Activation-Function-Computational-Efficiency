@@ -6,18 +6,16 @@ REPO_DIR="NN-Activation-Function-Computational-Efficiency/Sample_Capstone/code/"
 
 # Clone Git repository
 git clone $REPO_URL
-cd $REPO_DIR
 
 # Install Python and pip
 sudo apt-get update
 sudo apt-get install -yq python3 python3-pip
 
-# Install required Python packages
-pip install numpy
-pip install pandas
-pip install psutil
-pip install scikit-learn
-pip install tensorflow
+pip3 install numpy
+pip3 install pandas
+pip3 install psutil
+pip3 install scikit-learn
+pip3 install tensorflow
 
 # Run main.py script
-python3 main.py
+python3 ${REPO_DIR}main.py
