@@ -91,9 +91,9 @@ class DenseNN:
         n_samples = X.shape[0]
 
         for epoch in range(epochs):
-            pid = psutil.Process()
-            threads = pid.threads()
-            print(f"Number of threads: {len(threads)}")
+            # pid = psutil.Process()
+            # threads = pid.threads()
+            # print(f"Number of threads: {len(threads)}")
             indices = np.arange(n_samples)
             np.random.shuffle(indices)
             X_shuffled = X[indices]
