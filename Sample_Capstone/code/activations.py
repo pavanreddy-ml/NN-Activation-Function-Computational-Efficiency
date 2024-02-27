@@ -42,8 +42,8 @@ class ApproximatedNonlinearActivations:
     def forward(self, x):
         segment = ((x - self.x_range[0]) / self.interval).astype(int)
         segment = np.clip(segment, 0, self.n_pieces - 1)
-        grads = self.slopes.take(segment)
-        return self.y.take(segment) + (grads * (x - self.x.take(segment))), grads
+        grads = self.slopes[segment]
+        return self.y[segment] + (grads * (x - self.x[segment])), grads
 
 
 class SoftmaxNumpy:
