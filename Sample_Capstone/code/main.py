@@ -30,8 +30,14 @@ if __name__ == "__main__":
     parser.add_argument('--datasets', type=str, help='Dataset to use', required=False)
     parser.add_argument('--activations', type=str, help='Activation function to use', required=False)
     parser.add_argument('--batch_size', type=int, help='Batch size for training', required=False, default=BATCH_SIZE)
+    parser.add_argument('--colab', type=bool, help='Whether colab notebook or not', required=False, default=False)
 
     args = parser.parse_args()
+
+    if args.colab == True:
+        from google.colab import drive
+        drive.mount('/content/drive')
+        RESULTS_PATH = COLAB_RESULTS_PATH
 
     if args.datasets is not None:
         ds = args.datasets.split(",")
