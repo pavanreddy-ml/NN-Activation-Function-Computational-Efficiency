@@ -2,7 +2,7 @@
 
 # Replace the URL below with your repository URL
 REPO_URL="https://github.com/pavanreddy-ml/NN-Activation-Function-Computational-Efficiency.git"
-REPO_DIR="NN-Activation-Function-Computational-Efficiency/Sample_Capstone/code/"
+REPO_DIR="NN-Activation-Function-Computational-Efficiency/code/"
 
 # Clone Git repository
 git clone $REPO_URL
