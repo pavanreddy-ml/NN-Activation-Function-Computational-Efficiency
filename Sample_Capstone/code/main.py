@@ -10,18 +10,6 @@ import psutil
 p = psutil.Process(os.getpid())
 p.cpu_affinity([0])
 
-import json
-import argparse
-import cProfile
-from activations import *
-from config import *
-import config
-from nn import *
-from utils import *
-import pstats
-import numpy as np
-
-
 
 if __name__ == "__main__":
     datasets = ["synthetic", "mnist_digits", "cifar10", "california", "diabetes", "breast_cancer", "iris", "digits",
@@ -37,6 +25,8 @@ if __name__ == "__main__":
     parser.add_argument('--file_num', type=int, help='file num for parallel num. Default 0', required=False, default=0)
 
     args = parser.parse_args()
+
+    from config import *
 
     if args.colab == True:
         from google.colab import drive
@@ -73,6 +63,15 @@ if __name__ == "__main__":
         activations = a
 
     BATCH_SIZE = args.batch_size
+
+    import json
+    import argparse
+    import cProfile
+    from activations import *
+    from nn import *
+    from utils import *
+    import pstats
+    import numpy as np
 
     for act in activations:
         for dset in datasets:
