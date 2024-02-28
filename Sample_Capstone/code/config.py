@@ -1,4 +1,5 @@
 RESULTS_PATH = "results.csv"
+COLAB_RESULTS_PATH = "/content/drive/MyDrive/Research/ANA/results.csv"
 RUNS = 200
 VERBOSE = True
 OVERWRITE = False
