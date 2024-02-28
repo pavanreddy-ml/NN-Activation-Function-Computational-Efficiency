@@ -40,7 +40,7 @@ class ApproximatedNonlinearActivations:
         self.interval = self.x[1] - self.x[0]
 
     def forward(self, x):
-        segment = ((x - self.x_range[0]) / self.interval).astype(int)
+        segment = ((x - self.x_range[0]) / self.interval).astype(np.int16)
         segment = np.clip(segment, 0, self.n_pieces - 1)
         grads = self.slopes[segment]
         return self.y[segment] + (grads * (x - self.x[segment])), grads
