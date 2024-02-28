@@ -10,12 +10,12 @@ from sklearn.datasets import make_regression
 import numpy as np
 
 
-def load_file(new_file=False):
-    if not os.path.isfile(RESULTS_PATH) or new_file:
+def load_file(path=RESULTS_PATH.replace("<FILENUM>", ""), new_file=False):
+    if not os.path.isfile(path) or new_file:
         results_df = pd.DataFrame(columns=COLS)
-        results_df.to_csv(RESULTS_PATH, index=False)
+        results_df.to_csv(path, index=False)
     else:
-        results_df = pd.read_csv(RESULTS_PATH)
+        results_df = pd.read_csv(path)
     return results_df
 
 
@@ -47,14 +47,14 @@ def concat_results(df, results_df):
     return pd.concat([results_df, df], ignore_index=True)
 
 
-def write_results_to_csv(df, cache=True):
-    if cache and os.path.isfile(RESULTS_PATH):
-        cache_path = os.path.join(os.path.dirname(RESULTS_PATH),
+def write_results_to_csv(df, path=RESULTS_PATH.replace("<FILENUM>", ""), cache=True):
+    if cache and os.path.isfile(path):
+        cache_path = os.path.join(os.path.dirname(path),
                                   f'cache/results_cache_{datetime.now().strftime("%Y-%m-%d_%H-%M-%S")}.csv')
-        os.rename(RESULTS_PATH, cache_path)
-        df.to_csv(RESULTS_PATH, index=False)
+        os.rename(path, cache_path)
+        df.to_csv(path, index=False)
     else:
-        df.to_csv(RESULTS_PATH, index=False)
+        df.to_csv(path, index=False)
 
 
 def preprocess_data(dataset, num_samples=None):
