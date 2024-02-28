@@ -10,6 +10,12 @@ import psutil
 p = psutil.Process(os.getpid())
 p.cpu_affinity([0])
 
+import json
+import argparse
+import pstats
+import numpy as np
+import cProfile
+
 
 if __name__ == "__main__":
     datasets = ["synthetic", "mnist_digits", "cifar10", "california", "diabetes", "breast_cancer", "iris", "digits",
@@ -64,14 +70,11 @@ if __name__ == "__main__":
 
     BATCH_SIZE = args.batch_size
 
-    import json
-    import argparse
-    import cProfile
+
     from activations import *
     from nn import *
     from utils import *
-    import pstats
-    import numpy as np
+    
 
     for act in activations:
         for dset in datasets:
