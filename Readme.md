@@ -14,7 +14,7 @@ To run on colab. run the following in a cell
 
 Additionally, you can pass in arguments for datasets (Default: ALL), Activations (Default: sigmoid and tanh), batch_size (Default: 1024)
 ```bash
---datasets "synthetic, mnist_digits, cifar10, california, diabetes, breast_cancer, iris, digits, wine
+--datasets "synthetic, mnist_digits, cifar10, california, diabetes, breast_cancer, iris, digits, wine"
 --activations "sigmoid, tanh"
 --batch_size 1024
 ```
