@@ -19,4 +19,4 @@ pip3 install scikit-learn
 pip3 install tensorflow
 
 # Run main.py script
-python3 ${REPO_DIR}main.py
+python3 ${REPO_DIR}main.py "$@"
