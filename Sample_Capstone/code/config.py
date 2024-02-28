@@ -1,5 +1,5 @@
-RESULTS_PATH = "results.csv"
-COLAB_RESULTS_PATH = "/content/drive/MyDrive/Research/ANA/results.csv"
+RESULTS_PATH = "results<FILENUM>.csv"
+COLAB_RESULTS_PATH = "/content/drive/MyDrive/Research/ANA/results<FILENUM>.csv"
 RUNS = 200
 VERBOSE = True
 OVERWRITE = False
