@@ -5,7 +5,7 @@ VERBOSE = True
 OVERWRITE = False
 CACHE = False
 NEW_RESULTS_FILE = False
-EPOCHS = 10
+EPOCHS = 100
 BATCH_SIZE = 1024
 
 COLS = ["dataset", "activation", "run", "continuous_activation_time", "continuous_train_time", "continuous_performance_metric",
