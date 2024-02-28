@@ -42,10 +42,10 @@ if __name__ == "__main__":
         drive.mount('/content/drive')
         RESULTS_PATH = COLAB_RESULTS_PATH
 
-    if args.fine_num == 0:
+    if args.file_num == 0:
         RESULTS_PATH.replace("<FILENUM>", "")
     else:
-        RESULTS_PATH.replace("<FILENUM>", str(args.fine_num))
+        RESULTS_PATH.replace("<FILENUM>", str(args.file_num))
 
     if args.datasets is not None:
         ds = args.datasets.split(",")
