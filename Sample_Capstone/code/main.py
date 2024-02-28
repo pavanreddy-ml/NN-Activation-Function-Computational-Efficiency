@@ -1,13 +1,14 @@
 import os
-
-import numpy as np
-
 NUM_THREADS = '1'
 os.environ['MKL_NUM_THREADS'] = NUM_THREADS
 os.environ['OPENBLAS_NUM_THREADS'] = NUM_THREADS
 os.environ['NUMEXPR_NUM_THREADS'] = NUM_THREADS
 os.environ['OMP_NUM_THREADS'] = NUM_THREADS
 os.environ['VECLIB_MAXIMUM_THREADS'] = NUM_THREADS
+
+import psutil
+p = psutil.Process(os.getpid())
+p.cpu_affinity([0])
 
 import json
 import argparse
@@ -17,6 +18,7 @@ from config import *
 from nn import *
 from utils import *
 import pstats
+import numpy as np
 
 results_df = load_file(NEW_RESULTS_FILE)
 
@@ -31,6 +33,7 @@ if __name__ == "__main__":
     parser.add_argument('--activations', type=str, help='Activation function to use', required=False)
     parser.add_argument('--batch_size', type=int, help='Batch size for training', required=False, default=BATCH_SIZE)
     parser.add_argument('--colab', type=bool, help='Whether colab notebook or not', required=False, default=False)
+    parser.add_argument('--file_num', type=int, help='file num for parallel num. Default 0', required=False, default=0)
 
     args = parser.parse_args()
 
@@ -38,6 +41,11 @@ if __name__ == "__main__":
         from google.colab import drive
         drive.mount('/content/drive')
         RESULTS_PATH = COLAB_RESULTS_PATH
+
+    if args.fine_num == 0:
+        RESULTS_PATH.replace("<FILENUM>", "")
+    else:
+        RESULTS_PATH.replace("<FILENUM>", str(args.fine_num))
 
     if args.datasets is not None:
         ds = args.datasets.split(",")
