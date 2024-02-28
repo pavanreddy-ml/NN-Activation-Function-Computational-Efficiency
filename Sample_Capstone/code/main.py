@@ -15,6 +15,10 @@ import argparse
 import pstats
 import numpy as np
 import cProfile
+from activations import *
+from nn import *
+from utils import *
+from config import *
 
 
 if __name__ == "__main__":
@@ -32,7 +36,7 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    from config import *
+    
 
     if args.colab == True:
         from google.colab import drive
@@ -44,7 +48,7 @@ if __name__ == "__main__":
     else:
         RESULTS_PATH = RESULTS_PATH.replace("<FILENUM>", str(args.file_num))
 
-    results_df = load_file(NEW_RESULTS_FILE)
+    results_df = load_file(path=RESULTS_PATH, NEW_RESULTS_FILE)
 
     if args.datasets is not None:
         ds = args.datasets.split(",")
@@ -69,12 +73,6 @@ if __name__ == "__main__":
         activations = a
 
     BATCH_SIZE = args.batch_size
-
-
-    from activations import *
-    from nn import *
-    from utils import *
-    
 
     for act in activations:
         for dset in datasets:
@@ -213,4 +211,4 @@ if __name__ == "__main__":
                 for i in list(run_data.keys()):
                     run_data[i] = []
                 results_df = concat_results(temp_df, results_df)
-                write_results_to_csv(results_df, cache=CACHE)
+                write_results_to_csv(results_df, cache=CACHE, path=RESULTS_PATH)
