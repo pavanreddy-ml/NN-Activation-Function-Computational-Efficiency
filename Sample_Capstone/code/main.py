@@ -21,7 +21,7 @@ from utils import *
 import pstats
 import numpy as np
 
-results_df = load_file(NEW_RESULTS_FILE)
+
 
 if __name__ == "__main__":
     datasets = ["synthetic", "mnist_digits", "cifar10", "california", "diabetes", "breast_cancer", "iris", "digits",
@@ -41,12 +41,14 @@ if __name__ == "__main__":
     if args.colab == True:
         from google.colab import drive
         drive.mount('/content/drive')
-        config.RESULTS_PATH = COLAB_RESULTS_PATH
+        RESULTS_PATH = COLAB_RESULTS_PATH
 
     if args.file_num == 0:
-        config.RESULTS_PATH = RESULTS_PATH.replace("<FILENUM>", "")
+        RESULTS_PATH = RESULTS_PATH.replace("<FILENUM>", "")
     else:
-        config.RESULTS_PATH = RESULTS_PATH.replace("<FILENUM>", str(args.file_num))
+        RESULTS_PATH = RESULTS_PATH.replace("<FILENUM>", str(args.file_num))
+
+    results_df = load_file(NEW_RESULTS_FILE)
 
     if args.datasets is not None:
         ds = args.datasets.split(",")
