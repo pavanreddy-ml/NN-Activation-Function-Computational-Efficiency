@@ -43,9 +43,9 @@ if __name__ == "__main__":
         RESULTS_PATH = COLAB_RESULTS_PATH
 
     if args.file_num == 0:
-        RESULTS_PATH.replace("<FILENUM>", "")
+        RESULTS_PATH = RESULTS_PATH.replace("<FILENUM>", "")
     else:
-        RESULTS_PATH.replace("<FILENUM>", str(args.file_num))
+        RESULTS_PATH = RESULTS_PATH.replace("<FILENUM>", str(args.file_num))
 
     if args.datasets is not None:
         ds = args.datasets.split(",")
