@@ -15,6 +15,7 @@ import argparse
 import cProfile
 from activations import *
 from config import *
+import config
 from nn import *
 from utils import *
 import pstats
@@ -40,12 +41,12 @@ if __name__ == "__main__":
     if args.colab == True:
         from google.colab import drive
         drive.mount('/content/drive')
-        RESULTS_PATH = COLAB_RESULTS_PATH
+        config.RESULTS_PATH = COLAB_RESULTS_PATH
 
     if args.file_num == 0:
-        RESULTS_PATH = RESULTS_PATH.replace("<FILENUM>", "")
+        config.RESULTS_PATH = RESULTS_PATH.replace("<FILENUM>", "")
     else:
-        RESULTS_PATH = RESULTS_PATH.replace("<FILENUM>", str(args.file_num))
+        config.RESULTS_PATH = RESULTS_PATH.replace("<FILENUM>", str(args.file_num))
 
     if args.datasets is not None:
         ds = args.datasets.split(",")
