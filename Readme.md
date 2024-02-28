@@ -8,8 +8,12 @@ chmod +x run.sh
 
 To run on colab. run the following in a cell
 ```bash
+# Mount drive to save results on drive. To save locally remove --colab (Default is False)
+from google.colab import drive
+drive.mount('/content/drive')
+
 !git clone "https://github.com/pavanreddy-ml/NN-Activation-Function-Computational-Efficiency.git"
-!python3 /content/NN-Activation-Function-Computational-Efficiency/Sample_Capstone/code/main.py
+!python3 /content/NN-Activation-Function-Computational-Efficiency/Sample_Capstone/code/main.py --colab True
 ```
 
 Additionally, you can pass in arguments for datasets (Default: ALL), Activations (Default: sigmoid and tanh), batch_size (Default: 1024)
