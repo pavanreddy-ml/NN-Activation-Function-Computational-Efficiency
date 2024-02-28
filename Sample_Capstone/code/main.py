@@ -6,9 +6,6 @@ os.environ['NUMEXPR_NUM_THREADS'] = NUM_THREADS
 os.environ['OMP_NUM_THREADS'] = NUM_THREADS
 os.environ['VECLIB_MAXIMUM_THREADS'] = NUM_THREADS
 
-import psutil
-p = psutil.Process(os.getpid())
-p.cpu_affinity([0])
 
 import json
 import argparse
