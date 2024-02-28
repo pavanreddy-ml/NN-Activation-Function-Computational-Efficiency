@@ -48,7 +48,7 @@ if __name__ == "__main__":
     else:
         RESULTS_PATH = RESULTS_PATH.replace("<FILENUM>", str(args.file_num))
 
-    results_df = load_file(path=RESULTS_PATH, NEW_RESULTS_FILE)
+    results_df = load_file(path=RESULTS_PATH, new_file=NEW_RESULTS_FILE)
 
     if args.datasets is not None:
         ds = args.datasets.split(",")
