@@ -46,7 +46,7 @@ if __name__ == "__main__":
     if args.file_num == 0:
         RESULTS_PATH = RESULTS_PATH.replace("<FILENUM>", "")
     else:
-        RESULTS_PATH = RESULTS_PATH.replace("<FILENUM>", str(args.file_num))
+        RESULTS_PATH = RESULTS_PATH.replace("<FILENUM>", f"_{args.file_num}")
 
     results_df = load_file(path=RESULTS_PATH, new_file=NEW_RESULTS_FILE)
 
