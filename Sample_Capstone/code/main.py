@@ -39,8 +39,6 @@ if __name__ == "__main__":
     
 
     if args.colab == True:
-        from google.colab import drive
-        drive.mount('/content/drive')
         RESULTS_PATH = COLAB_RESULTS_PATH
 
     if args.file_num == 0:
